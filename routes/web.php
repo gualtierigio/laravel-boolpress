@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('guests/welcome');
+    return view('guests/home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('admin.home');
+
+Route::middleware('auth')
+    ->namespace('Admin')
+    ->name('.admin')
+    ->prefix('admin')
+    ->group(function() {
+        Route::resource('movies', MoviesController::class);
+    });
