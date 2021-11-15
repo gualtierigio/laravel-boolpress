@@ -21,10 +21,10 @@ Auth::routes();
 
 Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('admin.home');
 
-Route::middleware('auth')
-    ->namespace('Admin')
-    ->name('.admin')
-    ->prefix('admin')
-    ->group(function() {
-        Route::resource('movies', MoviesController::class);
-    });
+// Route::middleware('auth')
+//     ->namespace('Admin')
+//     ->name('.admin')
+//     ->prefix('admin')
+//     ->group(function() {
+//         Route::resource('movies', MoviesController::class);
+// });
