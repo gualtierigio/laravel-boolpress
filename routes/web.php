@@ -28,3 +28,7 @@ Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('adm
 //     ->group(function() {
 //         Route::resource('movies', MoviesController::class);
 // });
+
+Route::get('{any?}', function(){
+    return view('guests.home');
+})->where('any', '.*');
