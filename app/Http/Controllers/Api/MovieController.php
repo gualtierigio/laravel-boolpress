@@ -41,7 +41,7 @@ class MovieController extends Controller
     {
         $movie = Movies::findOrFail($id);
 
-        return response()->json($movie);
+        return response()->json($movie); 
     }
 
     /**
@@ -64,6 +64,9 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Movies::destroy($id);
+
+        return response('', 204);
     }
 }
+
