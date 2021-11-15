@@ -34,12 +34,14 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Movies $movie
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $movie = Movies::findOrFail($id);
+
+        return response()->json($movie);
     }
 
     /**
