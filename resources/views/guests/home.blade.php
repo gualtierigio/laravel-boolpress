@@ -11,6 +11,7 @@
 
     </head>
     <body>
+        <a href="{{ route('admin.home') }}">Home</a>
 
         <!-- Collego Vue tramite id root -->
        <div id="root"></div>
