@@ -21,7 +21,7 @@ class CreateUserInfosTable extends Migration
             $table->string('phone')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->reference('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('set null');
         });
     }
