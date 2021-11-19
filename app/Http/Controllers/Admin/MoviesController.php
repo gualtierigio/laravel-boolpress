@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Movies;
 
 class MoviesController extends Controller
 {
@@ -14,7 +15,9 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movies::all();
+
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**
@@ -24,7 +27,7 @@ class MoviesController extends Controller
      */
     public function create()
     {
-        //
+        return view('movies.create');
     }
 
     /**

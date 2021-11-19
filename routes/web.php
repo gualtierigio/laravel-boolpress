@@ -29,6 +29,6 @@ Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('adm
 //         Route::resource('movies', MoviesController::class);
 // });
 
-Route::get('{any?}', function(){
-    return view('guests.home');
-})->where('any', '.*');
+// Route::get('{any?}', function(){
+//     return view('guests.home');
+// })->where('any', '.*');
