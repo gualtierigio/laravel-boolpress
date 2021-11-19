@@ -15,7 +15,12 @@ class CreateMovieActorTable extends Migration
     {
         Schema::create('movie_actor', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+        
+            $table->unsignedBigInteger('actor_id');
+            $table->foreign('actor_id')->references('id')->on('actors')->onDelete('cascade');
+
+            $table->unsignedBigInteger('movie_id');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
         });
     }
 

@@ -11,4 +11,8 @@ class Movies extends Model
     public function category(){
         $this->belongsTo('App\Models\Category');
     }
+
+    public function actors(){
+        $this->belongsToMany('App\Models\Actor');
+    }
 }
