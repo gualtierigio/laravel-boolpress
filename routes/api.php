@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace('Api')->group(function(){
+Route::middleware('auth:api')->namespace('Api')->name('api.')->group(function(){
     Route::resource('/movies', MovieController::class);
 });

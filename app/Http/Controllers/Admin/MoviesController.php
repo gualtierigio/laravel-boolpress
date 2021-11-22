@@ -20,7 +20,7 @@ class MoviesController extends Controller
     {
         $movies = Movies::all();
 
-        return response()->json(compact('movies'));
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**

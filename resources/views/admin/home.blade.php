@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-                <a href="{{ route('movies.index') }}">Tutti i Movie</a>
+                <a href="{{ route('admin.movies.index') }}">Tutti i Movie</a>
 
                 <div class="card-body">
                     @if (session('status'))
