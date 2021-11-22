@@ -60,7 +60,7 @@ class MoviesController extends Controller
      */
     public function show(Movies $movies)
     {
-        return response()->json($movies);
+        return view('admin.movies.show',compact('movies'));
     }
 
     /**
