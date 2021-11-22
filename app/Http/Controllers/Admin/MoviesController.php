@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Movies;
+use App\Models\Movies;
+use App\Models\Category;
+use App\Models\Actor;
+
 
 class MoviesController extends Controller
 {
@@ -27,7 +30,9 @@ class MoviesController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        $newMovie = new Movies();
+
+        return view('admin.movies.create', compact('movies'));
     }
 
     /**
@@ -38,7 +43,13 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $movie = Movies::create($data);
+
+        $movie->save();
+
+        return redirect()->route('admin.movies.show', $movie);
     }
 
     /**
@@ -60,7 +71,7 @@ class MoviesController extends Controller
      */
     public function edit(Movies $movies)
     {
-        //
+        return view('admin.movies.edit', compact('movies'));
     }
 
     /**
@@ -72,7 +83,13 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie = Movies::findOrFail($id);
+
+        $data = $request->all();
+
+        $movie->update($data);
+
+        return redirect()->route('admin.movies.show', $movie);
     }
 
     /**
