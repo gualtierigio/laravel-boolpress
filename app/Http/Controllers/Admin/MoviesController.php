@@ -17,7 +17,7 @@ class MoviesController extends Controller
     {
         $movies = Movies::all();
 
-        return view('admin.movies.index', compact('movies'));
+        return response()->json(compact('movies'));
     }
 
     /**
@@ -44,21 +44,21 @@ class MoviesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Movies $movies
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movies $movies)
     {
-        //
+        return response()->json($movies);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Movies $movies
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movies $movies)
     {
         //
     }
@@ -83,6 +83,8 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Movies::destroy($id);
+
+        return response('', 204);
     }
 }

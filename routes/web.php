@@ -13,22 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guests/home');
-});
+Route::get('/', 'Guests\HomeController@index')->name('guests.home');
 
 Auth::routes();
 
-Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('admin.home');
+Route::middleware('auth')  // devi essere autenticato
+    ->namespace("Admin") // prendi i controller delle route tue figlie a partire dalla cartella Admin/
+    ->prefix('admin') // inserisci come prefisso nelle URI di tutte le route figlie admin/
+    ->name('admin.') // inserisci come prefisso per ogni nome di tutte le route figlie admin.
+    ->group(function(){ // e raggruppale in:
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('movies', MoviesController::class);        
+        Route::resource('users', UserController::class);        
+});
 
-// Route::middleware('auth')
-//     ->namespace('Admin')
-//     ->name('.admin')
-//     ->prefix('admin')
-//     ->group(function() {
-//         Route::resource('movies', MoviesController::class);
-// });
 
-// Route::get('{any?}', function(){
-//     return view('guests.home');
-// })->where('any', '.*');
+
+// Tutte le rotte che iniziano e finiscono per qualsiasi carattere che non siano state gestite fino ad ora saranno reindirizzate alla home.
+Route::get("{any?}", function(){
+    return view('guests.home');
+})->where("any", ".*");
