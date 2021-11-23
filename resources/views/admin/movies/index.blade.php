@@ -2,16 +2,22 @@
 
 @section('content')
 
-    <h1>Tutti i Movies</h1>
-
-    @forelse ($movies as $movie)
-
-        <h3><a href="#">{{ $movie->title }}</a></h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5"><h1>Tutti i Movies</h1></div>
+            @forelse ($movies as $movie)
         
-    @empty
+                <div class="col-3 p-3">
+                    <h3>
+                        <a href="{{ route('admin.movies.show', $movie) }}">{{ $movie->title }}</a>
+                    </h3>
+                </div>
+         
+            @empty
+                <h3>No Movies</h3>  
+            @endforelse
+        </div>
+    </div>
 
-        <h3>No Movies</h3>
-        
-    @endforelse
 
 @endsection
