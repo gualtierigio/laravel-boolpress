@@ -1,23 +1,24 @@
 <template>
-  <div id="app">
-    <Header />
-    <Main />
-    <Footer />
+  <div class="container">
+    <Header :title="title" />
+    <h1>test</h1>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Main from "./components/Main.vue";
-import Footer from "./components/Footer.vue";
+import Header from './Header.vue';
+import Header from './Movies/MoviesList.vue';
 
 export default {
   name: "App",
   components: {
-    Header,
-    Main,
-    Footer
+    Header
   },
+  data(){
+      return {
+          title : 'Boolpress'
+      }
+  }
 };
 </script>
 
