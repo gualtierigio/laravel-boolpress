@@ -20,10 +20,12 @@ export default {
       getMoviesList(){
           axios.get(`${this.baseUri}/api/movies`)
           .then((res) => {
-              console.log(res);
+              console.log(res.data);
           })
           .catch((err) => {
               console.error(err);
+          }).then(() => {
+
           });
       }
   },
