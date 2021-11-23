@@ -2278,6 +2278,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2338,6 +2339,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MoviesList",
   data: function data() {
@@ -2348,8 +2353,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getMoviesList: function getMoviesList() {
-      axios.get("".concat(this.baseUri, "/api/movies")).then(function (res) {
-        console.log(res.data);
+      var _this = this;
+
+      axios.get("".concat(this.baseUri, "/api/movies/")).then(function (res) {
+        _this.movies = res.data.movies;
       })["catch"](function (err) {
         console.error(err);
       }).then(function () {});
@@ -2848,7 +2855,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "container" },
-    [_c("Header", { attrs: { title: _vm.title } })],
+    [
+      _c("Header", { attrs: { title: _vm.title } }),
+      _vm._v(" "),
+      _c("MoviesList"),
+    ],
     1
   )
 }
@@ -2902,18 +2913,36 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "row" },
+    _vm._l(_vm.movies, function (movie) {
+      return _c(
+        "div",
+        {
+          key: movie.id,
+          staticClass: "card col-4",
+          staticStyle: { width: "18rem" },
+        },
+        [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(movie.title)),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(
+                "Some quick example text to build on the card title and make up the bulk of the card's content."
+              ),
+            ]),
+          ]),
+        ]
+      )
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

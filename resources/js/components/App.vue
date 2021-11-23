@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Header :title="title" />
+    <MoviesList/>
   </div>
 </template>
 

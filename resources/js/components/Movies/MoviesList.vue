@@ -1,8 +1,12 @@
 <template>
   <div class="row">
-      <div class="col-3">
-          
-      </div>
+        <div v-for="movie in movies" :key='movie.id' class="card col-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{movie.title}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- <a href="{{ route('movie->id') }}" class="btn btn-primary">Go to Movie</a> -->
+            </div>
+        </div>
   </div>
 </template>
 
@@ -18,9 +22,9 @@ export default {
   },
   methods: {
       getMoviesList(){
-          axios.get(`${this.baseUri}/api/movies`)
+          axios.get(`${this.baseUri}/api/movies/`)
           .then((res) => {
-              console.log(res.data);
+              this.movies = res.data.movies
           })
           .catch((err) => {
               console.error(err);
