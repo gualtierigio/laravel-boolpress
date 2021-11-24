@@ -2916,30 +2916,36 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "row" },
-    _vm._l(_vm.movies, function (movie) {
-      return _c(
-        "div",
-        {
-          key: movie.id,
-          staticClass: "card col-4",
-          staticStyle: { width: "18rem" },
-        },
-        [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(movie.title)),
+    [
+      _c("h2", { staticClass: "text-center col-12 mb-3" }, [
+        _vm._v("Tutti i Movie"),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.movies, function (movie) {
+        return _c(
+          "div",
+          {
+            key: movie.id,
+            staticClass: "card col-4",
+            staticStyle: { width: "18rem" },
+          },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(movie.title)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "Some quick example text to build on the card title and make up the bulk of the card's content."
+                ),
+              ]),
             ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(
-                "Some quick example text to build on the card title and make up the bulk of the card's content."
-              ),
-            ]),
-          ]),
-        ]
-      )
-    }),
-    0
+          ]
+        )
+      }),
+    ],
+    2
   )
 }
 var staticRenderFns = []

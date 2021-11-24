@@ -58,9 +58,9 @@ class MoviesController extends Controller
      * @param  Movies $movies
      * @return \Illuminate\Http\Response
      */
-    public function show(Movies $movies)
+    public function show(Movies $movie)
     {
-        return view('admin.movies.show', compact('movies'));
+        return view('admin.movies.show', compact('movie'));
     }
 
     /**
