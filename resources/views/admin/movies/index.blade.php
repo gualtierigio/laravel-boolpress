@@ -5,7 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5 text-center">
-                <h2>Tutti i Movies</h2>
+                <h2 class="mb-3">Tutti i Movies</h2>
+                <a href="{{ route('admin.movies.create') }}" class="btn btn-primary">Inserisci un nuovo Movie</a>
             </div>
             @forelse ($movies as $movie)
 
