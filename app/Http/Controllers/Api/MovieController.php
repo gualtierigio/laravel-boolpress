@@ -13,11 +13,17 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $movies = Movies::all();
 
-        return response()->json(compact('movies'));
+        $search = $request->query('search');
+
+        if ($search != null){
+            $movies = Movies::where('title', 'LIKE', '$search%')->get();
+        }
+
+        return response()->json(compact('movies', 'search'));
     }
 
     /**

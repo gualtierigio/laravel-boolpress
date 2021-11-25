@@ -1,6 +1,10 @@
 <template>
   <div class="row">
       <h2 class="text-center col-12 mb-3">Tutti i Movie</h2>
+        <form method="GET" class="form-inline col-12 mb-3">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{$search}}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search movies</button>
+        </form>
         <div v-for="movie in movies" :key='movie.id' class="card col-4" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{movie.title}}</h5>
