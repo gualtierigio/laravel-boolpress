@@ -2352,13 +2352,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       movies: [],
-      baseUri: 'http://127.0.0.1:8000'
+      baseUri: 'http://127.0.0.1:8000',
+      search: ''
     };
   },
   methods: {
     getMoviesList: function getMoviesList() {
       var _this = this;
 
+      console.log(this.search);
       axios.get("".concat(this.baseUri, "/api/movies/")).then(function (res) {
         _this.movies = res.data.movies;
       })["catch"](function (err) {
@@ -2913,8 +2915,94 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("h2", { staticClass: "text-center col-12 mb-3" }, [
+        _vm._v("Tutti i Movie"),
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        { staticClass: "form-inline col-12 mb-3", attrs: { method: "GET" } },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search",
+              },
+            ],
+            staticClass: "form-control mr-sm-2",
+            attrs: {
+              type: "search",
+              placeholder: "Search",
+              "aria-label": "Search",
+              name: "search",
+            },
+            domProps: { value: _vm.search },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success my-2 my-sm-0",
+              on: {
+                click: function ($event) {
+                  $event.preventDefault()
+                  return _vm.getMoviesList()
+                },
+              },
+            },
+            [_vm._v("Search movies")]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.movies, function (movie) {
+        return _c(
+          "div",
+          {
+            key: movie.id,
+            staticClass: "card col-4",
+            staticStyle: { width: "18rem" },
+          },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(movie.title)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "Some quick example text to build on the card title and make up the bulk of the card's content."
+                ),
+              ]),
+            ]),
+          ]
+        )
+      }),
+    ],
+    2
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
