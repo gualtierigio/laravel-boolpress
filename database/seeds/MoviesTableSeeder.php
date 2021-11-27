@@ -25,6 +25,7 @@ class MoviesTableSeeder extends Seeder
             $newMovie->title = $faker->words(3, true);
             $newMovie->description = $faker->paragraph(8, true);
             $newMovie->director = $faker->name();
+            $newMovie->img_url = $faker->imageUrl(420, 280, 'animals', true);
 
             $newMovie->category_id = Arr::random($category_ids);
 
