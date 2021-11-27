@@ -32,7 +32,7 @@ class MoviesController extends Controller
     {
         $newMovie = new Movies();
 
-        return view('admin.movies.create', compact('movies'));
+        return view('admin.movies.create');
     }
 
     /**
@@ -45,11 +45,23 @@ class MoviesController extends Controller
     {
         $data = $request->all();
 
-        $movie = Movies::create($data);
+        $movie = new Movies();
+
+        // Metodo di inserimento manuale
+
+        // $movie->title = $data['title'];
+        // $movie->director = $data['director'];
+        // $movie->img_url = $data['img_url'];
+        // $movie->description = $data['description'];
+
+        // Metodo fill
+
+        $movie->fill($data);
 
         $movie->save();
 
         return redirect()->route('admin.movies.show', $movie);
+
     }
 
     /**
