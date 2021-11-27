@@ -56,7 +56,11 @@ class MoviesController extends Controller
 
         // Metodo fill
 
-        $movie->fill($data);
+        // $movie->fill($data);
+
+        // Metodo create
+
+        $movie = Movies::create($data);
 
         $movie->save();
 

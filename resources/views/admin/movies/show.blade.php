@@ -5,7 +5,7 @@
     <div class="container">
         <div class="col-12">
             <h3 class="text-right">
-              <a href="{{ route('admin.movies.index') }}">Torna ai movie</a>
+              <a href="{{ route('admin.movies.index') }}">Torna a movies</a>
             </h3>
         </div>
         <div class="card col-12">
