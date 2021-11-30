@@ -9,3 +9,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Tom Tom
+@import "@tomtom-international/web-sdk-maps";
+
+#map {
+    height: 100vh;
+    width: 100vw;
+}

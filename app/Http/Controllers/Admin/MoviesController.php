@@ -43,6 +43,19 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|unique:movies|max:255',
+            'director' => 'required|string|max:255',
+            'img_url' => 'nullable',
+            'description' => 'required|string|min:10',
+        ],
+        [
+            'title.required' => 'Devi inserire un titolo per il film',
+            'director.required' => 'Devi inserire un regista per il film',
+            'description.required' => 'Devi inserire una descrizione per il film',
+            'description.min' => 'La descrizione deve avere più di 10 caratteri',
+        ]);
+
         $data = $request->all();
 
         $movie = new Movies();
