@@ -1,5 +1,6 @@
 <template>
   <div class="row">
+      <!-- <div class="col-12" id="map" style="width: 100px; height: 100px;"></div> -->
       <h2 class="text-center col-12 mb-3">Tutti i Movie</h2>
         <form method="GET" class="form-inline col-12 mb-3">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" v-model="search">
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+// import tt from '@tomtom-international/web-sdk-maps';
 
 export default {
   name: "MoviesList",
@@ -37,7 +39,17 @@ export default {
           }).then(() => {
 
           });
-      }
+      },
+    // _var: map=tt.map({
+    //   key: 'wgMmMk891fpxAmk55UGPaIsCdPoqmKQt',
+    //   container: 'map'
+    // }),
+    //     get var() {
+    //       return this._var;
+    //     },
+    //     set var(value) {
+    //       this._var=value;
+    //     },
   },
   mounted(){
       this.getMoviesList();
